@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="MyBlockNoteTry1.EditorStatusBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyBlockNoteTry1"
+             mc:Ignorable="d" 
+             d:DesignHeight="24" d:DesignWidth="800" Background="White" Initialized="UserControl_Initialized">
+    <StackPanel Orientation="Horizontal">
+        <Label x:Name="IndexRowLabel" Content="{Binding Path=CaretTextIndexRow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Padding="12,0,5,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="16" Height="20" Initialized="Label_Initialized"/>
+        <Label x:Name="IndexColumnLabel" Content="{Binding Path=CaretTextIndexColumn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Padding="12,0,5,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="16" Height="20" Initialized="Label_Initialized"/>
+        <Label x:Name="EncodingLabel" Content="UTF-8" FontSize="16" Padding="12,0,5,0" Height="20" VerticalAlignment="Top" VerticalContentAlignment="Center" Initialized="Label_Initialized"/>
+    </StackPanel>
+</UserControl>

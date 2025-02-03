@@ -1,0 +1,49 @@
+﻿<Window x:Name="MainWindow1" x:Class="MyBlockNoteTry1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyBlockNoteTry1"
+        mc:Ignorable="d"
+        Title="{Binding Path=FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="450" Width="800">
+    <Grid>
+        <DockPanel x:Name="MainDockPanel" LastChildFill="True">
+            <Menu x:Name="MenuStrip" DockPanel.Dock="Top" Initialized="Control_Initialized">
+                <MenuItem x:Name="MenuItemFile" Header="_File" Initialized="Control_Initialized">
+                    <MenuItem x:Name="MenuItemNew" Header="_New" InputGestureText="ALT+N" Click="NewMenuItem_Click" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="MenuItemOpen" Header="_Open" InputGestureText="ALT+O" Click="MenuItemOpen_Click" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="MenuItemSave" Header="_Save" InputGestureText="ALT+S" Click="MenuItemSave_Click" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="MenuItemSaveAs" Header="Save As" Click="MenuItemSaveAs_Click" Initialized="Control_Initialized"/>
+                    <Separator />
+                    <MenuItem x:Name="MenuItemExit" Header="_Exit" InputGestureText="ALT+E" Initialized="Control_Initialized"/>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemEdit" Header="Edit" Initialized="Control_Initialized">
+                    <MenuItem x:Name="MenuItemUndo" Header="Undo" Command="Undo" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="MenuItemRedo" Header="Redo" Command="Redo" Initialized="Control_Initialized"/>
+                    <Separator/>
+                    <MenuItem x:Name="MenuItemCopy" Header="Copy" Command="Copy" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="MenuItemPaste" Header="Paste" Command="Paste" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="MenuItemCut" Header="Cut" Command="Cut" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="MenuItemDelete" Header="Delete" Command="Delete" Initialized="Control_Initialized"/>
+                    <Separator/>
+                    <MenuItem x:Name="MenuItemSelectAll" Header="SelectAll" Command="SelectAll" Initialized="Control_Initialized"/>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemView" Header="View" Initialized="Control_Initialized">
+                    <MenuItem x:Name="MenuItemFontSettings" Header="Font Settings" Click="MenuItemFontSettings_Click" Initialized="Control_Initialized"/>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemTheme" Header="Theme" Initialized="Control_Initialized">
+                    <MenuItem x:Name="ThemeSettingsMenuItem" Header="Settings" Click="ThemeSettingsMenuItem_Click" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="ThemeWhiteMenuItem" Header="To White Theme" Click="ThemeWhiteMenuItem_Click" Initialized="Control_Initialized"/>
+                    <MenuItem x:Name="ThemeBlackMenuItem" Header="To Black Theme" Click="ThemeBlackMenuItem_Click" Initialized="Control_Initialized"/>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemInfo" Header="Info" Click="MenuItemInfo_Click" Initialized="Control_Initialized">
+                    <MenuItem x:Name="MenuItemAboutProgram" Header="About Program" Initialized="Control_Initialized"/>
+                </MenuItem>
+            </Menu>
+            <local:EditorStatusBar x:Name="MainEditorStatusBar" DockPanel.Dock="Bottom" Height="26" Foreground="Black">
+
+            </local:EditorStatusBar>
+            <TextBox x:Name="MainTextBox" Text="{Binding Path=Contents, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="{Binding Path=FontSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" FontFamily="{Binding Path=FontFamily, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" TextChanged="MainTextBox_TextChanged" PreviewKeyUp="MainTextBox_PreviewKeyUp" Initialized="Control_Initialized" PreviewMouseUp="MainTextBox_PreviewMouseUp" />
+        </DockPanel>
+    </Grid>
+</Window>
